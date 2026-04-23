@@ -164,6 +164,30 @@ hr { border-color: #21262d !important; }
 # ─────────────────────────────────────────────
 @st.cache_data
 def load_data():
+    # نستخدم اسم الملف مباشرة لأنه في نفس المجلد على GitHub
+    df = pd.read_csv('SRCA_Electricity_Data.csv') 
+    df['Year'] = df['Year'].astype(int)
+    df['Month'] = df['Month'].astype(int)
+    df['Collective_CA'] = df['Collective_CA'].astype(str)
+    df['Contract_Account'] = df['Contract_Account'].astype(str)
+    return df
+
+@st.cache_data
+def load_predictions():
+    return pd.read_csv('SRCA_2026_Predictions.csv')
+
+@st.cache_data
+def load_q1_comparison():
+    return pd.read_csv('SRCA_Q1_2026_Comparison.csv')
+
+@st.cache_data
+def load_model_metrics():
+    if os.path.exists('model_metrics.json'):
+        with open('model_metrics.json', 'r') as f:
+            return json.load(f)
+    return None
+@st.cache_data
+def load_data():
     df = pd.read_csv(os.path.join(BASE_DIR, 'SRCA_Electricity_Data.csv'))
     df['Year'] = df['Year'].astype(int)
     df['Month'] = df['Month'].astype(int)
