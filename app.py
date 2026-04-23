@@ -282,7 +282,7 @@ def kpi_card(label, value, delta=None, color='red', icon='', unit=''):
 # ─────────────────────────────────────────────
 with st.sidebar:
     # شعار الهيئة
-    logo_path = r"D:\SRCA_Electricity_Project_v3\srca_electricity\SRCAlogo_local_cmyk.jpg"
+    logo_path = r"D:\SRCA_Electricity_Project_v5\srca_electricity\SRCAlogo_local_cmyk.jpg"
     logo_local = os.path.join(BASE_DIR, 'SRCAlogo_local_cmyk.jpg')
     if os.path.exists(logo_local):
         st.image(logo_local, use_container_width=True)
