@@ -281,20 +281,13 @@ def kpi_card(label, value, delta=None, color='red', icon='', unit=''):
 # الشريط الجانبي
 # ─────────────────────────────────────────────
 # ابحث عن هذا الجزء في كودك وعدله:
+# ابحثي عن جزء اللوجو في Sidebar واستبدليه بهذا:
 with st.sidebar:
-    # استخدام المسار النسبي فقط ليعمل على السيرفر
-    logo_local = os.path.join(BASE_DIR, 'SRCAlogo_local_cmyk.jpg')
-    
-    if os.path.exists(logo_local):
-        st.image(logo_local, use_container_width=True)
+    logo_path = 'SRCAlogo_local_cmyk.jpg' # اسم الملف مباشرة
+    if os.path.exists(logo_path):
+        st.image(logo_path, use_container_width=True)
     else:
-        st.markdown("""
-        <div class="sidebar-logo">
-            <div class="sidebar-crescent">🌙</div>
-            <h2>هيئة الهلال الأحمر السعودي</h2>
-            <p>لوحة تحليل استهلاك الكهرباء</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<h2 style="text-align:center;">🌙 الهلال الأحمر</h2>', unsafe_allow_html=True)
 
     st.markdown("### فلاتر البيانات")
 
